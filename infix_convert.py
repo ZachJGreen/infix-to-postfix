@@ -16,7 +16,8 @@ def check_parentheses(infix: str):
                     balanced = False
         if not balanced:
             break
-
+    if len(bracket_stack) > 0:
+        balanced = False
     return balanced
 
 
@@ -89,6 +90,7 @@ def infix_to_postfix(infix: str):
                 while not open_bracket_check(op_stack[top]) and top > 0:
                     postfix_list.append(op_stack[top])
                     op_stack.pop(-1)
+                    top = len(op_stack) - 1
                 op_stack.pop(-1)
         top = len(op_stack) - 1
     while top > -1:
@@ -98,3 +100,5 @@ def infix_to_postfix(infix: str):
 
     postfix_out = ' '.join(postfix_list)
     return postfix_out
+
+print(infix_to_postfix("( 1 + 2  * 3"))
