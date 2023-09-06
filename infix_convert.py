@@ -101,4 +101,3 @@ def infix_to_postfix(infix: str):
     postfix_out = ' '.join(postfix_list)
     return postfix_out
 
-print(infix_to_postfix("( 1 + 2  * 3"))
